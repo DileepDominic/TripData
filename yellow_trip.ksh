@@ -3,7 +3,7 @@ VendorID string,
 tpep_pickup_datetime string,
 tpep_dropoff_datetime string,
 passenger_count int,
-trip_distance string,
+trip_distance double,
 RatecodeID string,
 store_and_fwd_flag string,
 PULocationID string,
@@ -35,4 +35,12 @@ LOAD DATA INPATH '/FileStore/shared_uploads//yellow_tripdata_2019_03.csv' OVERWR
 LOAD DATA INPATH '/FileStore/shared_uploads//yellow_tripdata_2019_02.csv' OVERWRITE INTO TABLE  trip.yellow_tripdata PARTITION (trip_date='201902');
 LOAD DATA INPATH '/FileStore/shared_uploads//yellow_tripdata_2019_01.csv' OVERWRITE INTO TABLE  trip.yellow_tripdata PARTITION (trip_date='201901');
 
+
+select VendorID,count(*) from trip.yellow_tripdata 
+group by VendorID
+order by VendorID desc;
+
+
+select trip_date,count(tpep_pickup_datetime) as trip_count,avg(trip_distance) as avg_distance, avg(passenger_count) as avg_passenger_count
+from trip.yellow_tripdata 
 
