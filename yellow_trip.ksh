@@ -16,7 +16,7 @@ tip_amount double,
 tolls_amount double,
 improvement_surcharge double,
 total_amount double,
-congestion_surcharge double)
+congestion_surcharge string)
 PARTITIONED BY (trip_date string)
 ROW FORMAT delimited fields terminated by ','
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;

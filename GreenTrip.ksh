@@ -19,7 +19,7 @@ improvement_surcharge double,
 total_amount double,
 payment_type string,
 trip_type string,
-congestion_surcharge double )
+congestion_surcharge string )
 PARTITIONED BY (trip_date string)
 ROW FORMAT delimited fields terminated by ','
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
